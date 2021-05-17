@@ -1,0 +1,128 @@
+"AUTOMÁTICO As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+
+    Label2_49 As label:
+        Font: =Font.Lato
+        Height: =70
+        Size: =22
+        Text: |-
+            ="TENSÃO DO SISTEMA:"
+        Width: =560
+        X: =28
+        Y: =94
+        ZIndex: =1
+
+    TDS_AUTO As text:
+        Align: =Align.Right
+        Default: =
+        Font: =Font.Lato
+        Height: =70
+        Size: =23
+        Width: =302
+        X: =40
+        Y: =171
+        ZIndex: =3
+
+    Label2_51 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 68, 68, 0.77)
+        Font: =Font.Lato
+        Height: =78
+        OnSelect: |
+            =Switch(Label6.Text,"Método de Ralph Lee",Navigate(ScreenRL,Fade), 
+            "Método ANSI/IEEE C2 NESC" ,Navigate(ScreenANSI,Fade),
+            "Método IEEE1584", Navigate(ScreenIEEE1584,Fade),
+            "Método de Doughty-Neal Ambiente Aberto", Navigate(ScreenDNA,Fade),
+            "Método de Doughty-Neal Ambiente Fechado", Navigate(ScreenDNF,Fade))
+        Size: =30
+        Text: ="Ir para método"
+        Width: =640
+        Y: =1058
+        ZIndex: =5
+
+    Label2_52 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(114, 188, 198, 100)
+        Font: =Font.Lato
+        Height: =78
+        Size: =30
+        Text: ="Sugestão de método"
+        Width: =640
+        ZIndex: =6
+
+    Icon2_5 As icon.ChevronLeft:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =50
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(Menu, ScreenTransition.Fade)
+        Width: =58
+        X: =16
+        Y: =14
+        ZIndex: =7
+
+    Label3_19 As label:
+        Font: =Font.Lato
+        Height: =77
+        Size: =24
+        Text: ="V"
+        Width: =144
+        X: =362
+        Y: =167
+        ZIndex: =9
+
+    Label6 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderThickness: =10
+        Color: =RGBA(255, 0, 0, 1)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(237, 237, 237, 1)
+        FocusedBorderThickness: =10
+        FontWeight: =FontWeight.Bold
+        Height: =174
+        Size: =30
+        Text: |-
+            =If(
+                Value(TDS_AUTO.Text) > 208 && Value(TDS_AUTO.Text) < 15000,
+                "Método IEEE1584",
+                menu_tt.Selected.Value = "Linha viva",
+                "Método ANSI/IEEE C2 NESC",
+                Value(TDS_AUTO.Text) < 600 && menu_tt.Selected.Value = "Painel ambiente fechado",
+                "Método de Doughty-Neal Ambiente Fechado",
+                Value(TDS_AUTO.Text) < 600 && menu_tt.Selected.Value = "Painel ambiente aberto",
+                "Método de Doughty-Neal Ambiente Aberto",
+                Value(TDS_AUTO.Text) > 15000,
+                "Método de Ralph Lee"
+            )
+        Width: =534
+        X: =53
+        Y: =693
+        ZIndex: =10
+
+    Label2_53 As label:
+        Font: =Font.Lato
+        Height: =70
+        Size: =22
+        Text: |-
+            ="TIPO DE TRABALHO:"
+        Width: =560
+        X: =40
+        Y: =264
+        ZIndex: =11
+
+    menu_tt As dropdown:
+        Default: ="-"
+        Height: =70
+        Items: |-
+            =["-",
+            "Painel ambiente aberto",
+            "Painel ambiente fechado",
+            "Linha viva"]
+        Size: =21
+        Width: =594
+        X: =40
+        Y: =334
+        ZIndex: =12
+

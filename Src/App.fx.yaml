@@ -1,0 +1,49 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |
+        =ClearCollect(
+            arrMenu,
+            {
+                Titulo: "Escolher Método",
+                Icone: Icon.Calculator,
+                Target: EscolherMetodo
+            },
+            {
+                Titulo: "Automático",
+                Icone: Icon.Calculator,
+                Target: AUTOMÁTICO
+            },
+            {
+                Titulo: "Sobre",
+                Icone: Icon.Laptop,
+                Target: SOBRE
+            });
+        ClearCollect(    
+            arrEscolher,
+            {
+                Titulo: "Ralph Lee",
+                Icone: Icon.ToolsWrench,
+                Target: ScreenRL
+            },
+            {
+                Titulo: "Doughty Neal: Ar Livre",
+                Icone: Icon.ToolsWrench,
+                Target: ScreenDNA
+            },
+            {
+                Titulo: "Doughty Neal: Ambiente Fechado",
+                Icone: Icon.ToolsWrench,
+                Target: ScreenDNF
+            },
+            {
+                Titulo: "ANSI/IEEE C2 NESC",
+                Icone: Icon.ToolsWrench,
+                Target: ScreenANSI
+            },
+            {
+                Titulo: "IEEE 1584",
+                Icone: Icon.ToolsWrench,
+                Target: ScreenIEEE1584
+            }
+        )
+

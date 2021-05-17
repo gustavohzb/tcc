@@ -1,0 +1,133 @@
+etiquetaIEEE1584 As screen:
+
+    Rectangle2_4 As rectangle:
+        Fill: =RGBA(243, 243, 243, 1)
+        Height: =1136
+        Width: =640
+        ZIndex: =1
+
+    Label2_26 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(114, 188, 198, 100)
+        Font: =Font.Lato
+        Height: =78
+        Size: =30
+        Text: =
+        Width: =640
+        ZIndex: =2
+
+    Icon2_11 As icon.ChevronLeft:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =50
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(ScreenIEEE1584, ScreenTransition.Fade)
+        Width: =58
+        X: =16
+        Y: =14
+        ZIndex: =3
+
+    Icon1_4 As icon.Add:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Menu, ScreenTransition.Fade)
+        X: =558
+        Y: =7
+        ZIndex: =4
+
+    Image2_5 As image:
+        Height: =794
+        Image: =ETIQUETA
+        Width: =640
+        Y: =168
+        ZIndex: =5
+
+    Label4_10 As label:
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =17
+        Text: =EI_1584
+        Width: =105
+        X: =447
+        Y: =668
+        ZIndex: =6
+
+    Label4_11 As label:
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =17
+        Text: ="cal/cm²"
+        Width: =88
+        X: =516
+        Y: =668
+        ZIndex: =7
+
+    DTRAB_1584 As label:
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =17
+        Text: =Switch( DIST_menu.Selected.Value,"Painel de 15 kV",910, "Painel de 5 kV" ,910, "Painel de baixa tensão",610,"CCMs e quadros elétricos de baixa tensão",455,"Cabos",455,"Outros", 460)
+        Width: =120
+        X: =53
+        Y: =807
+        ZIndex: =8
+
+    Label4_30 As label:
+        Align: =Align.Center
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =17
+        Text: |-
+            =If(Value(EI_1584.Text) < 4, "Não aplicável",
+            Value(EI_1584.Text) >= 4 && Value(EI_1584.Text) < 8, "Categoria/Risco 1",
+            Value(EI_1584.Text) >= 8 && Value(EI_1584.Text) < 25, "Categoria/Risco 2",
+            Value(EI_1584.Text) >= 25 && Value(EI_1584.Text) < 40, "Categoria/Risco 3",
+            Value(EI_1584.Text) >= 40, "Categoria/Risco 4")   
+        Width: =214
+        X: =200
+        Y: =668
+        ZIndex: =9
+
+    Label4_31 As label:
+        Align: =Align.Center
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =17
+        Text: |-
+            =Text(TDS_IE*1000, "[$-pt-BR] #.###" )
+        Width: =105
+        X: =39
+        Y: =668
+        ZIndex: =10
+
+    Label4_32 As label:
+        Align: =Align.Center
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =17
+        Text: ="V"
+        Width: =88
+        X: =101
+        Y: =668
+        ZIndex: =11
+
+    Label4_33 As label:
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =17
+        Text: ="mm"
+        Width: =88
+        X: =101
+        Y: =807
+        ZIndex: =12
+
+    TextInput1 As text:
+        Default: ="Entrada de texto"
+        Height: =64
+        Size: =21
+        Width: =264
+        X: =270
+        Y: =567
+        ZIndex: =13
+

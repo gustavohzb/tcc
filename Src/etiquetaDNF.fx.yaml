@@ -1,0 +1,129 @@
+etiquetaDNF As screen:
+
+    Label2_24 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(114, 188, 198, 100)
+        Font: =Font.Lato
+        Height: =78
+        Size: =30
+        Text: =
+        Width: =640
+        ZIndex: =1
+
+    Image2_3 As image:
+        Height: =794
+        Image: =ETIQUETA
+        Width: =640
+        Y: =168
+        ZIndex: =2
+
+    Icon2_9 As icon.ChevronLeft:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =50
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(ScreenDNF, ScreenTransition.Fade)
+        Width: =58
+        X: =16
+        Y: =14
+        ZIndex: =3
+
+    Icon1_2 As icon.Add:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Menu, ScreenTransition.Fade)
+        X: =558
+        Y: =7
+        ZIndex: =4
+
+    Label4_6 As label:
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =14
+        Text: =EI_DNF
+        Width: =105
+        X: =429
+        Y: =668
+        ZIndex: =5
+
+    Label4_7 As label:
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =14
+        Text: ="cal/cm²"
+        Width: =88
+        X: =534
+        Y: =668
+        ZIndex: =6
+
+    Label4_16 As label:
+        Align: =Align.Center
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =15
+        Text: |-
+            =If(Value(EI_DNF.Text) < 4, "Não aplicável",
+            Value(EI_DNF.Text) >= 4 && Value(EI_DNF.Text) < 8, "Categoria/Risco 1",
+            Value(EI_DNF.Text) >= 8 && Value(EI_DNF.Text) < 25, "Categoria/Risco 2",
+            Value(EI_DNF.Text) >= 25 && Value(EI_DNF.Text) < 40, "Categoria/Risco 3",
+            Value(EI_DNF.Text) >= 40, "Categoria/Risco 4")   
+        Width: =184
+        X: =212
+        Y: =668
+        ZIndex: =7
+
+    Label4_20 As label:
+        Align: =Align.Center
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =15
+        Text: |-
+            =Text( TDS_DNF*1000, "[$-pt-BR] #.###" )
+        Width: =105
+        X: =29
+        Y: =668
+        ZIndex: =8
+
+    Label4_21 As label:
+        Align: =Align.Center
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =14
+        Text: ="V"
+        Width: =88
+        X: =91
+        Y: =668
+        ZIndex: =9
+
+    Label4_24 As label:
+        Align: =Align.Center
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =15
+        Text: =DAI_DNF*25.4
+        Width: =105
+        X: =27
+        Y: =805
+        ZIndex: =10
+
+    Label4_25 As label:
+        Align: =Align.Center
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =70
+        Size: =14
+        Text: ="mm"
+        Width: =88
+        X: =89
+        Y: =805
+        ZIndex: =11
+
+    TextInput1_2 As text:
+        Default: =
+        Height: =64
+        Size: =21
+        Width: =264
+        X: =270
+        Y: =567
+        ZIndex: =12
+

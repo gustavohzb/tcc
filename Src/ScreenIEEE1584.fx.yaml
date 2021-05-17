@@ -1,0 +1,548 @@
+ScreenIEEE1584 As screen:
+
+    Rectangle2_5 As rectangle:
+        Fill: =RGBA(243, 243, 243, 1)
+        Height: =1136
+        Width: =640
+        ZIndex: =1
+
+    Label2_35 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 68, 68, 0.77)
+        Font: =Font.Lato
+        Height: =78
+        OnSelect: =Navigate(etiquetaIEEE1584,Fade)
+        Size: =30
+        Text: ="Gerar Etiqueta"
+        Width: =640
+        Y: =1058
+        ZIndex: =14
+
+    Label2_29 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(114, 188, 198, 100)
+        Font: =Font.Lato
+        Height: =78
+        Size: =30
+        Text: ="Método IEEE 1584"
+        Width: =640
+        ZIndex: =15
+
+    Icon2_6 As icon.ChevronLeft:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =50
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(EscolherMetodo, ScreenTransition.Fade)
+        Width: =58
+        X: =16
+        Y: =14
+        ZIndex: =16
+
+    Canvas1_1 As fluidGrid.fluidGridWithBlankCard:
+        BorderThickness: =0
+        Height: =981
+        Width: =Parent.Width
+        Y: =76
+        ZIndex: =17
+
+        DataCard1_1 As dataCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =1
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =145
+            Width: =639
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            Label2_30 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =18
+                Text: |-
+                    ="CORRENTE DE CURTO CIRCUITO:"
+                Width: =560
+                X: =6
+                ZIndex: =1
+
+            IBF As text:
+                Align: =Align.Right
+                Default: =
+                Font: =Font.Lato
+                Height: =70
+                Size: =21
+                Width: =302
+                X: =18
+                Y: =58
+                ZIndex: =2
+
+            Label3_21 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =24
+                Text: ="kA"
+                Width: =144
+                X: =332
+                Y: =58
+                ZIndex: =3
+
+        DataCard2 As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =1
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =145
+            Width: =639
+            X: =0
+            Y: =1
+            ZIndex: =2
+
+            Label2_31 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =18
+                Text: |-
+                    ="TENSÃO DO SISTEMA:"
+                Width: =560
+                X: =15
+                ZIndex: =1
+
+            TDS_IE As text:
+                Align: =Align.Right
+                Default: =
+                Font: =Font.Lato
+                Height: =70
+                Size: =21
+                Width: =302
+                X: =15
+                Y: =58
+                ZIndex: =2
+
+            Label3_20 As label:
+                Font: =Font.Lato
+                Height: =46
+                Size: =24
+                Text: ="kV"
+                Width: =144
+                X: =329
+                Y: =70
+                ZIndex: =3
+
+        DataCard3 As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =1
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =145
+            Visible: =If( Value(TDS_IE.Text) <= 15 && Value(TDS_IE.Text) >= 1, false, true)
+            Width: =639
+            X: =0
+            Y: =2
+            ZIndex: =3
+
+            Label2_33 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =18
+                Text: |-
+                    ="AMBIENTE:"
+                Width: =560
+                X: =18
+                Y: =3
+                ZIndex: =1
+
+            K_menu As dropdown:
+                Default: ="-"
+                Height: =70
+                Items: |+
+                    =["-",
+                    "Ambiente aberto",
+                    "Ambiente fechado"]
+                    
+                Size: =21
+                Width: =356
+                X: =18
+                Y: =60
+                ZIndex: =2
+
+            valorK As label:
+                Height: =70
+                Size: =21
+                Text: =Switch( K_menu.Selected.Value,"Ambiente aberto",-0.153, "Ambiente fechado" ,-0.097)
+                Visible: =false
+                Width: =208
+                X: =401
+                Y: =60
+                ZIndex: =3
+
+        DataCard4 As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =1
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =290
+            Width: =640
+            X: =0
+            Y: =3
+            ZIndex: =4
+
+            Label2_34 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =18
+                Text: |-
+                    ="DISTÂNCIA ENTRE CONDUTORES:"
+                Width: =560
+                X: =21
+                Y: =3
+                ZIndex: =1
+
+            G As text:
+                Align: =Align.Right
+                Default: =
+                Font: =Font.Lato
+                Height: =70
+                Size: =21
+                Width: =302
+                X: =21
+                Y: =56
+                ZIndex: =2
+
+            Label3_18 As label:
+                Font: =Font.Lato
+                Height: =56
+                Size: =24
+                Text: ="mm"
+                Width: =144
+                X: =334
+                Y: =63
+                ZIndex: =3
+
+            Button1 As button:
+                Height: =70
+                OnSelect: =Navigate(tabelaG1584,Fade)
+                Text: ="Conferir tabela"
+                Width: =188
+                X: =418
+                Y: =119
+                ZIndex: =4
+
+            Label2_48 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =18
+                Text: |-
+                    ="FATOR DE DISTÂNCIA:"
+                Width: =560
+                X: =21
+                Y: =151
+                ZIndex: =5
+
+            valorX As text:
+                Align: =Align.Right
+                Default: =
+                Font: =Font.Lato
+                Height: =70
+                Size: =21
+                Width: =302
+                X: =21
+                Y: =204
+                ZIndex: =6
+
+        DataCard5 As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =1
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =145
+            Width: =640
+            X: =0
+            Y: =4
+            ZIndex: =5
+
+            IA_1584 As text:
+                Align: =Align.Right
+                Color: =RGBA(255, 0, 0, 1)
+                Default: |+
+                    =If( Value(TDS_IE.Text) <= 15 && Value(TDS_IE.Text) >= 1,Round(10^(0.00402+0.983*Log(IBF)),3),Round(10^(valorK + 0.662*Log(IBF) + 0.0966*TDS_IE + 0.000526*G + 0.5588*TDS_IE*Log(IBF) - 0.00304*G*Log(IBF)),3))
+                    
+                DisplayMode: =DisplayMode.View
+                Font: =Font.Lato
+                Height: =70
+                Size: =21
+                Width: =302
+                X: =162
+                Y: =63
+                ZIndex: =1
+
+            Label2_32 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =18
+                Text: |-
+                    ="CORRENTE DO ARCO ELÉTRICO:"
+                Width: =560
+                X: =13
+                ZIndex: =2
+
+            Label3_22 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =24
+                Text: ="kA"
+                Width: =144
+                X: =491
+                Y: =63
+                ZIndex: =3
+
+        DataCard6 As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =1
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =145
+            Width: =640
+            X: =0
+            Y: =5
+            ZIndex: =6
+
+            Label2_43 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =18
+                Text: |-
+                    ="TIPO DE EQUIPAMENTO:"
+                Width: =560
+                X: =16
+                ZIndex: =1
+
+            DIST_menu As dropdown:
+                Default: ="-"
+                Height: =70
+                Items: |-
+                    =["-",
+                    "Painel de 15 kV",
+                    "Painel de 5 kV",
+                    "Painel de baixa tensão",
+                    "CCMs e quadros elétricos de baixa tensão",
+                    "Cabos",
+                    "Outros"]
+                Size: =21
+                Width: =594
+                X: =16
+                Y: =57
+                ZIndex: =2
+
+        DataCard7 As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =1
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =145
+            Width: =640
+            X: =0
+            Y: =6
+            ZIndex: =7
+
+            Label2_44 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =18
+                Text: |-
+                    ="SISTEMA DE ATERRAMENTO:"
+                Width: =341
+                X: =18
+                Y: =6
+                ZIndex: =1
+
+            ATERR_menu_1 As dropdown:
+                Default: ="-"
+                Height: =70
+                Items: |-
+                    =["-",
+                    "Isolado ou aterrado por alta resistência",
+                    "Solidamente aterrado"]
+                Size: =21
+                Width: =594
+                X: =18
+                Y: =63
+                ZIndex: =2
+
+            valorK2_1 As label:
+                Height: =70
+                Size: =21
+                Text: =Switch( ATERR_menu_1.Selected.Value,"Isolado ou aterrado por alta resistência",0, "Solidamente aterrado" ,-0.113)
+                Visible: =false
+                Width: =208
+                X: =387
+                ZIndex: =3
+
+            valorK1_1 As label:
+                Height: =70
+                Size: =21
+                Text: =Switch(K_menu.Selected.Value,"Ambiente aberto",-0.792, "Ambiente fechado" ,-0.555)
+                Visible: =false
+                Width: =208
+                X: =285
+                ZIndex: =4
+
+        DataCard8 As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =1
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =145
+            Width: =640
+            X: =0
+            Y: =7
+            ZIndex: =8
+
+            Label2_47 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =18
+                Text: |-
+                    ="TEMPO DO ARCO:"
+                Width: =560
+                X: =24
+                Y: =6
+                ZIndex: =1
+
+            TA_1584 As text:
+                Align: =Align.Right
+                Default: =
+                Font: =Font.Lato
+                Height: =70
+                Size: =21
+                Width: =302
+                X: =24
+                Y: =64
+                ZIndex: =2
+
+            Label3_25 As label:
+                Font: =Font.Lato
+                Height: =46
+                Size: =24
+                Text: ="s"
+                Width: =144
+                X: =338
+                Y: =76
+                ZIndex: =3
+
+        DataCard9 As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =1
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =145
+            Width: =640
+            X: =0
+            Y: =8
+            ZIndex: =9
+
+            Cf As label:
+                Height: =70
+                Size: =21
+                Text: =If(Value(TDS_IE.Text)<=1,1.5,1)
+                Visible: |
+                    =false
+                Width: =208
+                X: =379
+                ZIndex: =4
+
+            ENORM As text:
+                Align: =Align.Right
+                Color: =RGBA(255, 0, 0, 1)
+                Default: |+
+                    =Round(10^(valorK1_1 + valorK2_1 + 1.081*Log(IA_1584) + 0.0011*G ),3)
+                    
+                DisplayMode: |
+                    =DisplayMode.View
+                Font: =Font.Lato
+                Height: =70
+                Size: =21
+                Width: =302
+                X: =176
+                Y: =63
+                ZIndex: =5
+
+            Label2_45 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =18
+                Text: |-
+                    ="ENERGIA NORMALIZADA:"
+                Width: =560
+                X: =27
+                ZIndex: =6
+
+            Label3_23 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =24
+                Text: ="J/cm²"
+                Width: =144
+                X: =496
+                Y: =63
+                ZIndex: =7
+
+        DataCard12 As dataCard.blankCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =1
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =145
+            Width: =640
+            X: =0
+            Y: =11
+            ZIndex: =12
+
+            EI_1584 As text:
+                Align: =Align.Right
+                Color: =RGBA(255, 0, 0, 1)
+                Default: |+
+                    =Round(Cf*ENORM*(TA_1584/0.2)*(610^Value(valorX.Text)/Value(DTRAB_1584.Text)^valorX),3)
+                    
+                DisplayMode: =DisplayMode.View
+                Font: =Font.Lato
+                Height: =70
+                Size: =21
+                Width: =302
+                X: =176
+                Y: =63
+                ZIndex: =1
+
+            Label2_46 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =18
+                Text: |-
+                    ="ENERGIA INCIDENTE:"
+                Width: =560
+                X: =27
+                ZIndex: =2
+
+            Label3_24 As label:
+                Font: =Font.Lato
+                Height: =70
+                Size: =24
+                Text: ="cal/cm²"
+                Width: =144
+                X: =496
+                Y: =63
+                ZIndex: =3
+

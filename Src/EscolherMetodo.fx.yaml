@@ -1,0 +1,93 @@
+EscolherMetodo As screen:
+    Fill: =RGBA(0, 0, 0, 0)
+    OnVisible: |-
+        =Collect(arrEscolher, {Image: Image11.Image})
+
+    Rectangle2_1 As rectangle:
+        Fill: =RGBA(243, 243, 243, 1)
+        Height: =1136
+        Width: =640
+        ZIndex: =1
+
+    Gallery11 As gallery.galleryVertical:
+        Height: =688
+        Items: =arrEscolher
+        Layout: =Layout.Vertical
+        TemplateSize: =126
+        Transition: =Transition.Pop
+        Y: =78
+        ZIndex: =4
+
+        Label8 As label:
+            Font: =Font.Lato
+            Height: =86
+            OnSelect: =Navigate(ThisItem.Target)
+            Size: =33
+            Text: =ThisItem.Titulo
+            Width: =498
+            X: =132
+            Y: =29
+            ZIndex: =2
+
+    Label2_9 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(114, 188, 198, 100)
+        Font: =Font.Lato
+        Height: =78
+        Size: =30
+        Text: ="Escolha o método"
+        Width: =640
+        ZIndex: =5
+
+    Icon2_2 As icon.ChevronLeft:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =50
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(Menu, ScreenTransition.Fade)
+        Width: =58
+        X: =16
+        Y: =14
+        ZIndex: =6
+
+    Image13 As image:
+        Height: =84
+        Image: ='icons8-wrench-64'
+        Width: =94
+        X: =27
+        Y: =113
+        ZIndex: =8
+
+    Image13_1 As image:
+        Height: =84
+        Image: ='icons8-wrench-64'
+        Width: =94
+        X: =27
+        Y: =243
+        ZIndex: =9
+
+    Image13_2 As image:
+        Height: =84
+        Image: ='icons8-wrench-64'
+        Width: =94
+        X: =27
+        Y: =380
+        ZIndex: =10
+
+    Image13_3 As image:
+        Height: =84
+        Image: ='icons8-wrench-64'
+        Width: =94
+        X: =27
+        Y: =515
+        ZIndex: =11
+
+    Image13_4 As image:
+        Height: =84
+        Image: ='icons8-wrench-64'
+        Width: =94
+        X: =27
+        Y: =641
+        ZIndex: =12
+
